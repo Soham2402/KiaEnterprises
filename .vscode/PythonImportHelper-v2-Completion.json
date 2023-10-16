@@ -162,6 +162,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -502,6 +518,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0005_remove_product_description_description_product",
+        "description": "inventory.migrations.0005_remove_product_description_description_product",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0004_remove_description_product_product_description'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='product',\n            name='description',\n        ),\n        migrations.AddField(",
+        "detail": "inventory.migrations.0005_remove_product_description_description_product",
+        "documentation": {}
+    },
+    {
         "label": "DescriptionInline",
         "kind": 6,
         "importPath": "inventory.admin",
@@ -551,7 +576,16 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    description = models.OneToOneField(to=Description,on_delete=models.CASCADE, blank=True, null=True)\n    def __str__(self):\n        return self.name\nclass SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)",
+        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    def __str__(self):\n        return self.name\nclass Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Description",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    product = models.OneToOneField(to=Product, on_delete=models.CASCADE, blank=True, null=True)\n    def __str__(self):\n        return self.about\nclass SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")",
         "detail": "inventory.models",
         "documentation": {}
     },
