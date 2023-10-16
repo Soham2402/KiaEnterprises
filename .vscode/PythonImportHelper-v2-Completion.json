@@ -551,25 +551,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    #'id' establishes Products relationships with all other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n=======\nclass Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    def __str__(self):\n        return self.about",
-        "detail": "inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Description",
-        "kind": 6,
-        "importPath": "inventory.models",
-        "description": "inventory.models",
-        "peekOfCode": "class Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    def __str__(self):\n        return self.about\nclass Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n>>>>>>> c9a81ff (Made changes in model added subproducts relationshsip)\n    name = models.CharField(null=False, max_length=256)",
-        "detail": "inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Product",
-        "kind": 6,
-        "importPath": "inventory.models",
-        "description": "inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n>>>>>>> c9a81ff (Made changes in model added subproducts relationshsip)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    description = models.OneToOneField(to=Description,on_delete=models.CASCADE, blank=True, null=True)\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    description = models.OneToOneField(to=Description,on_delete=models.CASCADE, blank=True, null=True)\n    def __str__(self):\n        return self.name\nclass SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -578,7 +560,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    # Maps relationship of subproduct with Product using Product id (FOREIGN KEY)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.name\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    #Maps image of the product to Product",
+        "peekOfCode": "class SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")\n    def __str__(self):\n        return self.name\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -587,16 +569,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    #Maps image of the product to Product\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\n<<<<<<< HEAD\nclass Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    # Maps Description to Product using Product id\n    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)\n    about = models.TextField(null = False)",
-        "detail": "inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Description",
-        "kind": 6,
-        "importPath": "inventory.models",
-        "description": "inventory.models",
-        "peekOfCode": "class Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    # Maps Description to Product using Product id\n    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.about",
+        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    def __str__(self):\n        return self.name",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -605,7 +578,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    #Mapping Category Name to Product\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    def __str__(self):\n        return self.name",
         "detail": "inventory.models",
         "documentation": {}
     },
