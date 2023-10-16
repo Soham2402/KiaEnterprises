@@ -162,38 +162,6 @@
         "documentation": {}
     },
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -511,44 +479,26 @@
         "kind": 6,
         "importPath": "inventory.migrations.0002_alter_description_product",
         "description": "inventory.migrations.0002_alter_description_product",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='description',\n            name='product',\n            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='inventory.product'),\n        ),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='description',\n            name='product',\n            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='inventory.product'),\n        ),",
         "detail": "inventory.migrations.0002_alter_description_product",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "inventory.migrations.0003_remove_product_image_images",
-        "description": "inventory.migrations.0003_remove_product_image_images",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0002_alter_description_product'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='product',\n            name='image',\n        ),\n        migrations.CreateModel(",
-        "detail": "inventory.migrations.0003_remove_product_image_images",
+        "importPath": "inventory.migrations.0003_alter_product_id",
+        "description": "inventory.migrations.0003_alter_product_id",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0002_alter_description_product'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='product',\n            name='id',\n            field=models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False),\n        ),",
+        "detail": "inventory.migrations.0003_alter_product_id",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "inventory.migrations.0004_images_image",
-        "description": "inventory.migrations.0004_images_image",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0003_remove_product_image_images'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='images',\n            name='image',\n            field=models.TextField(default='Test Image'),\n        ),",
-        "detail": "inventory.migrations.0004_images_image",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "inventory.migrations.0005_image_subproduct_delete_images_image_sub_product",
-        "description": "inventory.migrations.0005_image_subproduct_delete_images_image_sub_product",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0004_images_image'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Image',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('image', models.TextField(default='Test Image')),",
-        "detail": "inventory.migrations.0005_image_subproduct_delete_images_image_sub_product",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "inventory.migrations.0006_rename_color_subproduct_sub_quality_and_more",
-        "description": "inventory.migrations.0006_rename_color_subproduct_sub_quality_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0005_image_subproduct_delete_images_image_sub_product'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='subproduct',\n            old_name='color',\n            new_name='sub_quality',\n        ),",
-        "detail": "inventory.migrations.0006_rename_color_subproduct_sub_quality_and_more",
+        "importPath": "inventory.migrations.0004_remove_description_product_product_description",
+        "description": "inventory.migrations.0004_remove_description_product_product_description",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0003_alter_product_id'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='description',\n            name='product',\n        ),\n        migrations.AddField(",
+        "detail": "inventory.migrations.0004_remove_description_product_product_description",
         "documentation": {}
     },
     {
@@ -556,7 +506,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class DescriptionInline(admin.StackedInline):  # or admin.StackedInline\n    model = Description\n    extra =  1\nclass ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]",
+        "peekOfCode": "class DescriptionInline(admin.StackedInline):  # or admin.StackedInline\n    model = Description\n    extra =  1\nclass ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -565,7 +515,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(SubProduct,SubProductAdmin)",
+        "peekOfCode": "class ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(Description)",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -574,7 +524,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
+        "peekOfCode": "class SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(Description)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -583,7 +533,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
+        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(Description)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -601,25 +551,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    def __str__(self):\n        return self.name\nclass SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")",
-        "detail": "inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubProduct",
-        "kind": 6,
-        "importPath": "inventory.models",
-        "description": "inventory.models",
-        "peekOfCode": "class SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")\n    def __str__(self):\n        return self.name\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)",
-        "detail": "inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "kind": 6,
-        "importPath": "inventory.models",
-        "description": "inventory.models",
-        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    def __str__(self):",
+        "peekOfCode": "class Product(models.Model):\n    #'id' establishes Products relationships with all other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n=======\nclass Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    def __str__(self):\n        return self.about",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -628,7 +560,43 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    def __str__(self):\n        return self.about\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)",
+        "peekOfCode": "class Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    def __str__(self):\n        return self.about\nclass Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n>>>>>>> c9a81ff (Made changes in model added subproducts relationshsip)\n    name = models.CharField(null=False, max_length=256)",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n>>>>>>> c9a81ff (Made changes in model added subproducts relationshsip)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    description = models.OneToOneField(to=Description,on_delete=models.CASCADE, blank=True, null=True)\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.name",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubProduct",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    # Maps relationship of subproduct with Product using Product id (FOREIGN KEY)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.name\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    #Maps image of the product to Product",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    #Maps image of the product to Product\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\n<<<<<<< HEAD\nclass Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    # Maps Description to Product using Product id\n    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)\n    about = models.TextField(null = False)",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Description",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Description(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    # Maps Description to Product using Product id\n    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.about",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -637,7 +605,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    #Mapping Category Name to Product\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    #Admin Panel Beutification\n    def __str__(self):\n        return self.name",
         "detail": "inventory.models",
         "documentation": {}
     },
