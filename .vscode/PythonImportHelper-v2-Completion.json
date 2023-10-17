@@ -531,7 +531,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class DescriptionInline(admin.StackedInline):  # or admin.StackedInline\n    model = Description\n    extra =  1\nclass ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]",
+        "peekOfCode": "class DescriptionInline(admin.StackedInline):  # or admin.StackedInline\n    model = Description\n    extra =  1\nclass ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -540,7 +540,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(Description)",
+        "peekOfCode": "class ImagesInline(admin.StackedInline):  # or admin.StackedInline\n    model = Image\n    extra =  1\nclass SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(SubProduct,SubProductAdmin)",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -549,7 +549,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(Description)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
+        "peekOfCode": "class SubProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -558,7 +558,7 @@
         "kind": 6,
         "importPath": "inventory.admin",
         "description": "inventory.admin",
-        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(Description)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
+        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    inlines = [ImagesInline,DescriptionInline]\n# Register your models here.\nadmin.site.register(Product,ProductAdmin)\nadmin.site.register(SubProduct,SubProductAdmin)\nadmin.site.register(Category)",
         "detail": "inventory.admin",
         "documentation": {}
     },
@@ -617,11 +617,20 @@
         "documentation": {}
     },
     {
+        "label": "DescriptionSerializer",
+        "kind": 6,
+        "importPath": "inventory.serializer",
+        "description": "inventory.serializer",
+        "peekOfCode": "class DescriptionSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Description\n        fields = \"__all__\"\nclass ProductSerializer(serializers.ModelSerializer):\n    description = DescriptionSerializer()\n    class Meta:\n        model = Product\n        fields = \"__all__\"\nclass CategorySerializer(serializers.ModelSerializer):",
+        "detail": "inventory.serializer",
+        "documentation": {}
+    },
+    {
         "label": "ProductSerializer",
         "kind": 6,
         "importPath": "inventory.serializer",
         "description": "inventory.serializer",
-        "peekOfCode": "class ProductSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Product\n        fields = \"__all__\"\nclass CategorySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Category\n        fields = \"__all__\"\nclass DescriptionSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class ProductSerializer(serializers.ModelSerializer):\n    description = DescriptionSerializer()\n    class Meta:\n        model = Product\n        fields = \"__all__\"\nclass CategorySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Category\n        fields = \"__all__\"",
         "detail": "inventory.serializer",
         "documentation": {}
     },
@@ -630,16 +639,7 @@
         "kind": 6,
         "importPath": "inventory.serializer",
         "description": "inventory.serializer",
-        "peekOfCode": "class CategorySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Category\n        fields = \"__all__\"\nclass DescriptionSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Description\n        fields = \"__all__\"",
-        "detail": "inventory.serializer",
-        "documentation": {}
-    },
-    {
-        "label": "DescriptionSerializer",
-        "kind": 6,
-        "importPath": "inventory.serializer",
-        "description": "inventory.serializer",
-        "peekOfCode": "class DescriptionSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Description\n        fields = \"__all__\"",
+        "peekOfCode": "class CategorySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Category\n        fields = \"__all__\"",
         "detail": "inventory.serializer",
         "documentation": {}
     },

@@ -9,3 +9,4 @@ class ProductViewSet(viewsets.ViewSet):
         products = Product.objects.all()
         serialized = ProductSerializer(products, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
+    
