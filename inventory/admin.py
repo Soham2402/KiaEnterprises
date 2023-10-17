@@ -10,9 +10,6 @@ class DescriptionInline(admin.StackedInline):  # or admin.StackedInline
 class ImagesInline(admin.StackedInline):  # or admin.StackedInline
     model = Image
     extra =  1
-    
-class SubProductAdmin(admin.ModelAdmin):
-    inlines = [ImagesInline]
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ImagesInline,DescriptionInline]
@@ -20,5 +17,5 @@ class ProductAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Product,ProductAdmin)
-admin.site.register(SubProduct,SubProductAdmin)
+admin.site.register(SubProduct)
 admin.site.register(Category)

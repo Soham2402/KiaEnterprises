@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from .serializer import ProductSerializer
-from inventory.models import Product
+from .serializer import ProductSerializer, ImageSerializer
+from inventory.models import Product,Image
 
 class ProductViewSet(viewsets.ViewSet):
     def list(self, request):
