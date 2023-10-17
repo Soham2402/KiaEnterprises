@@ -2,12 +2,23 @@ from django.db import models
 import uuid
 # Create your models here.
 
+
+class Category(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(null=False, max_length=256)
+    # Makes admin panel look sexy   
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     #'id' acts as a tool to connect this model to other models
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)
     name = models.CharField(null=False, max_length=256)
     price = models.PositiveIntegerField(null=False)
-    hasSub = models.BooleanField(null=False)  
+    hasSub = models.BooleanField(null=False) 
+    # Establishes models connection with category
+    category = models.ForeignKey(to = Category, on_delete= models.DO_NOTHING, default=1)
+     
     #Makes admin panel look sexy
     def __str__(self):
         return self.name
@@ -40,14 +51,7 @@ class Image(models.Model):
     product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name="product_images", blank=True, null=True)
     
     
-class Category(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(null=False, max_length=256)
-    # Establishes models connection with Product
-    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)
-    # Makes admin panel look sexy   
-    def __str__(self):
-        return self.name
+
     
     
     

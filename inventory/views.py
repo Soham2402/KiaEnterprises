@@ -10,3 +10,5 @@ class ProductViewSet(viewsets.ViewSet):
         serialized = ProductSerializer(products, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
+class CategoryViewSet(viewsets.ViewSet):
+    pass
