@@ -576,7 +576,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    def __str__(self):\n        return self.name\nclass Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)",
+        "peekOfCode": "class Product(models.Model):\n    #'id' acts as a tool to connect this model to other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)\n    #Makes admin panel look sexy\n    def __str__(self):\n        return self.name\nclass Description(models.Model):",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -585,7 +585,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    product = models.OneToOneField(to=Product, on_delete=models.CASCADE, blank=True, null=True)\n    def __str__(self):\n        return self.about\nclass SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")",
+        "peekOfCode": "class Description(models.Model):\n    about = models.TextField(null = False)\n    dimension = models.CharField(max_length=256)\n    weight = models.PositiveIntegerField()\n    # Establishes models connection with Product\n    # One to one connection as each product is expected to have unique description\n    product = models.OneToOneField(to=Product, on_delete=models.CASCADE, blank=True, null=True)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.about",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -594,7 +594,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")\n    def __str__(self):\n        return self.name\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)",
+        "peekOfCode": "class SubProduct(Product):\n    sub_quality = models.CharField(max_length=256)\n    # Establishes models connection with Product\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\")\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.name\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    # Establishes models connection with Product",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -603,7 +603,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    # Establishes models connection with Product\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE)\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    # Establishes models connection with Product\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    # Makes admin panel look sexy   ",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -612,7 +612,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    # Establishes models connection with Product\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.name",
         "detail": "inventory.models",
         "documentation": {}
     },
