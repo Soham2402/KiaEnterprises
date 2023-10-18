@@ -146,6 +146,46 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -244,7 +284,7 @@
         "documentation": {}
     },
     {
-        "label": "Product",
+        "label": "Category",
         "importPath": "inventory.models",
         "description": "inventory.models",
         "isExtraImport": true,
@@ -253,6 +293,14 @@
     },
     {
         "label": "Image",
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "isExtraImport": true,
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
         "importPath": "inventory.models",
         "description": "inventory.models",
         "isExtraImport": true,
@@ -501,6 +549,33 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0004_remove_category_products",
+        "description": "inventory.migrations.0004_remove_category_products",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0003_alter_image_product'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='category',\n            name='products',\n        ),\n    ]",
+        "detail": "inventory.migrations.0004_remove_category_products",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0005_alter_category_id",
+        "description": "inventory.migrations.0005_alter_category_id",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0004_remove_category_products'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='category',\n            name='id',\n            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),\n        ),",
+        "detail": "inventory.migrations.0005_alter_category_id",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0006_product_category_alter_category_id",
+        "description": "inventory.migrations.0006_product_category_alter_category_id",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0005_alter_category_id'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='product',\n            name='category',\n            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.DO_NOTHING, to='inventory.category'),\n        ),",
+        "detail": "inventory.migrations.0006_product_category_alter_category_id",
+        "documentation": {}
+    },
+    {
         "label": "DescriptionInline",
         "kind": 6,
         "importPath": "inventory.admin",
@@ -537,11 +612,20 @@
         "documentation": {}
     },
     {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "inventory.models",
+        "description": "inventory.models",
+        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.name\nclass Product(models.Model):\n    #'id' acts as a tool to connect this model to other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)",
+        "detail": "inventory.models",
+        "documentation": {}
+    },
+    {
         "label": "Product",
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Product(models.Model):\n    #'id' acts as a tool to connect this model to other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False)  \n    #Makes admin panel look sexy\n    def __str__(self):\n        return self.name\nclass Description(models.Model):",
+        "peekOfCode": "class Product(models.Model):\n    #'id' acts as a tool to connect this model to other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)\n    price = models.PositiveIntegerField(null=False)\n    hasSub = models.BooleanField(null=False) \n    # Establishes models connection with category\n    category = models.ForeignKey(to = Category, on_delete= models.DO_NOTHING, default=1)\n    #Makes admin panel look sexy\n    def __str__(self):",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -568,16 +652,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    # Establishes models connection with Product and SubProduct\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name=\"product_images\", blank=True, null=True)\nclass Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    # Establishes models connection with Product\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    # Makes admin panel look sexy   ",
-        "detail": "inventory.models",
-        "documentation": {}
-    },
-    {
-        "label": "Category",
-        "kind": 6,
-        "importPath": "inventory.models",
-        "description": "inventory.models",
-        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    # Establishes models connection with Product\n    products = models.ForeignKey(to= Product, on_delete= models.DO_NOTHING)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    # Establishes models connection with Product and SubProduct\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name=\"product_images\", blank=True, null=True)",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -631,7 +706,16 @@
         "kind": 6,
         "importPath": "inventory.views",
         "description": "inventory.views",
-        "peekOfCode": "class ProductViewSet(viewsets.ViewSet):\n    def list(self, request):\n        products = Product.objects.all()\n        serialized = ProductSerializer(products, many=True)\n        return Response(serialized.data, status=status.HTTP_200_OK)",
+        "peekOfCode": "class ProductViewSet(viewsets.ViewSet):\n    def list(self, request):\n        products = Product.objects.all()\n        serialized = ProductSerializer(products, many=True)\n        return Response(serialized.data, status=status.HTTP_200_OK)\nclass CategoryViewSet(viewsets.ViewSet):\n    pass",
+        "detail": "inventory.views",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryViewSet",
+        "kind": 6,
+        "importPath": "inventory.views",
+        "description": "inventory.views",
+        "peekOfCode": "class CategoryViewSet(viewsets.ViewSet):\n    pass",
         "detail": "inventory.views",
         "documentation": {}
     },

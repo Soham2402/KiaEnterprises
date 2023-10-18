@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializer import ProductSerializer, ImageSerializer
-from inventory.models import Product,Image
+from inventory.models import Category, Image, Product
 
 class ProductViewSet(viewsets.ViewSet):
     def list(self, request):
@@ -17,3 +17,6 @@ class ProductViewSet(viewsets.ViewSet):
             return Response(serialized.data, status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
+
+class CategoryViewSet(viewsets.ViewSet):
+    pass
