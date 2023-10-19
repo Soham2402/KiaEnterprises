@@ -18,19 +18,20 @@ class ProductViewSet(viewsets.ViewSet):
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
         
-    def destroy(self, request,pk):
+    def destroy(self, request, pk):
         try:
             Product.objects.get(id = pk).delete()
             return Response(status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
         
-    # def update(self, request, pk):
-    #     try:
-    #         Product.objects.get(id = pk).update()
-    #         return Response(status=status.HTTP_200_OK)
-    #     except:
-    #         return Response(status=status.HTTP_204_NO_CONTENT)
+    def update(self, request, pk):
+        try:
+            #This is working hard coded still need to figure out how to make this shit dynamic
+            Product.objects.filter(id = pk).update(name = "Random Harkat")
+            return Response(status=status.HTTP_200_OK)
+        except:
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
 class CategoryViewSet(viewsets.ViewSet):
     pass

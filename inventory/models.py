@@ -5,7 +5,7 @@ import uuid
 
 class Category(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(null=False, max_length=256)
+    name = models.CharField(null=False, max_length=256, unique=True)
     # Makes admin panel look sexy   
     def __str__(self):
         return self.name
