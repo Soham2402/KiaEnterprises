@@ -18,13 +18,19 @@ class ProductViewSet(viewsets.ViewSet):
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
         
-    def delete(self, request, pk):
+    def destroy(self, request,pk):
         try:
-            products = Product.objects.delete(id=pk)
-            serialized = ProductSerializer(products, many=False)
-            return Response(serialized.data, status=status.HTTP_200_OK)
+            Product.objects.get(id = pk).delete()
+            return Response(status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
+        
+    # def update(self, request, pk):
+    #     try:
+    #         Product.objects.get(id = pk).update()
+    #         return Response(status=status.HTTP_200_OK)
+    #     except:
+    #         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class CategoryViewSet(viewsets.ViewSet):
     pass
