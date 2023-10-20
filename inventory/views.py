@@ -25,10 +25,19 @@ class ProductViewSet(viewsets.ViewSet):
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
         
-    def update(self, request, pk):
+    # def update(self, request, pk):
+    #     try:
+    #         #This is working hard coded still need to figure out how to make this shit dynamic
+    #         Product.objects.filter(id = pk).update(name = "Random Harkat")
+    #         return Response(status=status.HTTP_200_OK)
+    #     except:
+    #         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    def create(self, request, pk):
         try:
-            #This is working hard coded still need to figure out how to make this shit dynamic
-            Product.objects.filter(id = pk).update(name = "Random Harkat")
+            deserialized = ProductSerializer(request.data)
+            if deserialized.is_valid(raise_exception=True):
+                deserialized.save()
             return Response(status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
