@@ -46,7 +46,7 @@ class SubProduct(models.Model):
     
     
 class Image(models.Model):
-    image = models.TextField(default="Test Image")
+    image = models.ImageField(upload_to ='assets/products', null= False)
     # Establishes models connection with Product and SubProduct
     product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name="product_images", blank=True, null=True)
     
