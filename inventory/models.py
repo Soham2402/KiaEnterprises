@@ -39,7 +39,7 @@ class SubProduct(models.Model):
     sub_quality = models.CharField(max_length=256)
     #Establishes models connection with Product
     product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name="subproducts", blank=True, null=True)
-    image = models.TextField()
+    image = models.TextField(max_length=256, blank=False, null=False)
     # Makes admin panel look sexy   
     def __str__(self):
         return f"{self.sub_quality} {self.product.name}"
@@ -47,6 +47,7 @@ class SubProduct(models.Model):
     
 class Image(models.Model):
     image = models.ImageField(upload_to ='assets/products', blank=False, null=False)
+    image = models.TextField(max_length=256, blank=False, null=False)
     # Establishes models connection with Product and SubProduct
     product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name="product_images", blank=True, null=True)
     
