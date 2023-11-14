@@ -47,3 +47,11 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = "__all__"
         
+class CategoryProductSerializer(serializers.ModelSerializer):
+    about = serializers.CharField(source='description.about')
+    # product_image = ImageSerializer(many = True)
+
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price', 'about']
+        # fields = ['id', 'name', 'price', 'about', 'product_image']    

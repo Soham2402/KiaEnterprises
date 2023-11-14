@@ -21,10 +21,12 @@ from django.conf.urls.static import static
 
 from rest_framework.routers import DefaultRouter
 from inventory.views import ProductViewSet
+from inventory.views import CategoryViewSet
 
 
 router = DefaultRouter()
 router.register(r'inventory', viewset=ProductViewSet, basename='ProductQueryset')
+router.register(r'category', viewset=CategoryViewSet, basename='CategoryQueryset')
 
 urlpatterns = [
   path('admin/', admin.site.urls),
