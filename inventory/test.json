@@ -1,0 +1,30 @@
+{
+    "name": "Sample Product",
+    "price": 100,
+    "hasSub": true,
+    "category": "b092e169-77fe-4438-9aa6-1a93848b3abf",
+    "description": {
+      "about": "Sample description",
+      "dimension": "10x10",
+      "weight": 500
+    },
+    "product_images": [
+      {
+        "image": "base64_encoded_image_data_1"
+      },
+      {
+        "image": "base64_encoded_image_data_2"
+      }
+    ],
+    "subproducts": [
+      {
+        "sub_quality": "High Quality",
+        "image": "base64_encoded_image_data_3"
+      },
+      {
+        "sub_quality": "Low Quality",
+        "image": "base64_encoded_image_data_4"
+      }
+    ]
+    }
+  

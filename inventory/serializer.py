@@ -26,6 +26,20 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
+        
+    def create(self, validated_data):
+        description_data = validated_data.pop('description')
+        image_data = validated_data.pop('product_images')
+        subproducts_data = validated_data.pop('subproducts')
+
+        product = Product.objects.create(**validated_data)
+
+        Description.objects.create(product=product, **description_data)
+        for image in image_data:
+            Image.objects.create(product=product, **image)
+        for subproduct_data in subproducts_data:
+            SubProduct.objects.create(product=product, **subproduct_data)
+        return product
 
 class CategorySerializer(serializers.ModelSerializer):
     
@@ -33,3 +47,11 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = "__all__"
         
+class CategoryProductSerializer(serializers.ModelSerializer):
+    about = serializers.CharField(source='description.about')
+    # product_image = ImageSerializer(many = True)
+
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price', 'about']
+        # fields = ['id', 'name', 'price', 'about', 'product_image']    

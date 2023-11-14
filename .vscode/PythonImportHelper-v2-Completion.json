@@ -65,6 +65,22 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
         "label": "DefaultRouter",
         "importPath": "rest_framework.routers",
         "description": "rest_framework.routers",
@@ -147,6 +163,102 @@
     },
     {
         "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -445,7 +557,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\nimport os\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_ROOT =  os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -454,7 +566,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\nimport os\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_ROOT =  os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -463,7 +575,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\nimport os\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_ROOT =  os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -472,7 +584,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\nimport os\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nMEDIA_ROOT =  os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -481,7 +593,25 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nMEDIA_ROOT =  os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "KiaEnterprises.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "KiaEnterprises.settings",
+        "description": "KiaEnterprises.settings",
+        "peekOfCode": "MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "KiaEnterprises.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "KiaEnterprises.settings",
+        "description": "KiaEnterprises.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -499,7 +629,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.urls",
         "description": "KiaEnterprises.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'inventory', viewset=ProductViewSet, basename='ProductQueryset')\nurlpatterns = [\n    path('admin/', admin.site.urls),\n    path('',include(router.urls))   \n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'inventory', viewset=ProductViewSet, basename='ProductQueryset')\nurlpatterns = [\n  path('admin/', admin.site.urls),\n    path('',include(router.urls))   \n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "KiaEnterprises.urls",
         "documentation": {}
     },
@@ -508,7 +638,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.urls",
         "description": "KiaEnterprises.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('',include(router.urls))   \n]",
+        "peekOfCode": "urlpatterns = [\n  path('admin/', admin.site.urls),\n    path('',include(router.urls))   \n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "KiaEnterprises.urls",
         "documentation": {}
     },
@@ -576,6 +706,60 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0007_alter_category_name",
+        "description": "inventory.migrations.0007_alter_category_name",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0006_product_category_alter_category_id'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='category',\n            name='name',\n            field=models.CharField(max_length=256, unique=True),\n        ),",
+        "detail": "inventory.migrations.0007_alter_category_name",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0008_alter_category_name",
+        "description": "inventory.migrations.0008_alter_category_name",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0007_alter_category_name'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='category',\n            name='name',\n            field=models.CharField(max_length=256),\n        ),",
+        "detail": "inventory.migrations.0008_alter_category_name",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0009_alter_category_name",
+        "description": "inventory.migrations.0009_alter_category_name",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0008_alter_category_name'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='category',\n            name='name',\n            field=models.CharField(max_length=256, unique=True),\n        ),",
+        "detail": "inventory.migrations.0009_alter_category_name",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0010_alter_image_image",
+        "description": "inventory.migrations.0010_alter_image_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0009_alter_category_name'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='image',\n            name='image',\n            field=models.ImageField(upload_to='./assets/products'),\n        ),",
+        "detail": "inventory.migrations.0010_alter_image_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0011_alter_image_image",
+        "description": "inventory.migrations.0011_alter_image_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0010_alter_image_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='image',\n            name='image',\n            field=models.ImageField(upload_to='assets/products'),\n        ),",
+        "detail": "inventory.migrations.0011_alter_image_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventory.migrations.0012_alter_image_image_alter_subproduct_image",
+        "description": "inventory.migrations.0012_alter_image_image_alter_subproduct_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('inventory', '0011_alter_image_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='image',\n            name='image',\n            field=models.TextField(max_length=256),\n        ),",
+        "detail": "inventory.migrations.0012_alter_image_image_alter_subproduct_image",
+        "documentation": {}
+    },
+    {
         "label": "DescriptionInline",
         "kind": 6,
         "importPath": "inventory.admin",
@@ -616,7 +800,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.name\nclass Product(models.Model):\n    #'id' acts as a tool to connect this model to other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)",
+        "peekOfCode": "class Category(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    name = models.CharField(null=False, max_length=256, unique=True)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return self.name\nclass Product(models.Model):\n    #'id' acts as a tool to connect this model to other models\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=True)\n    name = models.CharField(null=False, max_length=256)",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -643,7 +827,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class SubProduct(models.Model):\n    sub_quality = models.CharField(max_length=256)\n    #Establishes models connection with Product\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\", blank=True, null=True)\n    image = models.TextField()\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return f\"{self.sub_quality} {self.product.name}\"\nclass Image(models.Model):\n    image = models.TextField(default=\"Test Image\")",
+        "peekOfCode": "class SubProduct(models.Model):\n    sub_quality = models.CharField(max_length=256)\n    #Establishes models connection with Product\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE, related_name=\"subproducts\", blank=True, null=True)\n    image = models.TextField(max_length=256, blank=False, null=False)\n    # Makes admin panel look sexy   \n    def __str__(self):\n        return f\"{self.sub_quality} {self.product.name}\"\nclass Image(models.Model):\n    image = models.ImageField(upload_to ='assets/products', blank=False, null=False)",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -652,7 +836,7 @@
         "kind": 6,
         "importPath": "inventory.models",
         "description": "inventory.models",
-        "peekOfCode": "class Image(models.Model):\n    image = models.TextField(default=\"Test Image\")\n    # Establishes models connection with Product and SubProduct\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name=\"product_images\", blank=True, null=True)",
+        "peekOfCode": "class Image(models.Model):\n    image = models.ImageField(upload_to ='assets/products', blank=False, null=False)\n    image = models.TextField(max_length=256, blank=False, null=False)\n    # Establishes models connection with Product and SubProduct\n    product = models.ForeignKey(to = Product, on_delete=models.CASCADE,related_name=\"product_images\", blank=True, null=True)",
         "detail": "inventory.models",
         "documentation": {}
     },
@@ -688,7 +872,7 @@
         "kind": 6,
         "importPath": "inventory.serializer",
         "description": "inventory.serializer",
-        "peekOfCode": "class ProductSerializer(serializers.ModelSerializer):\n    description = DescriptionSerializer()\n    product_images = ImageSerializer(many = True)\n    subproducts = SubProductSerializer(many=True)\n    class Meta:\n        model = Product\n        fields = \"__all__\"\nclass CategorySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Category",
+        "peekOfCode": "class ProductSerializer(serializers.ModelSerializer):\n    description = DescriptionSerializer()\n    product_images = ImageSerializer(many = True)\n    subproducts = SubProductSerializer(many=True)\n    class Meta:\n        model = Product\n        fields = \"__all__\"\n    def create(self, validated_data):\n        description_data = validated_data.pop('description')\n        image_data = validated_data.pop('product_images')",
         "detail": "inventory.serializer",
         "documentation": {}
     },
@@ -706,7 +890,7 @@
         "kind": 6,
         "importPath": "inventory.views",
         "description": "inventory.views",
-        "peekOfCode": "class ProductViewSet(viewsets.ViewSet):\n    def list(self, request):\n        products = Product.objects.all()\n        serialized = ProductSerializer(products, many=True)\n        return Response(serialized.data, status=status.HTTP_200_OK)\nclass CategoryViewSet(viewsets.ViewSet):\n    pass",
+        "peekOfCode": "class ProductViewSet(viewsets.ViewSet):\n    def list(self, request):\n        products = Product.objects.all()\n        serialized = ProductSerializer(products, many=True)\n        return Response(serialized.data, status=status.HTTP_200_OK)\n    def retrieve(self, request,pk):\n        try:\n            products = Product.objects.get(id=pk)\n            serialized = ProductSerializer(products, many=False)\n            return Response(serialized.data, status=status.HTTP_200_OK)",
         "detail": "inventory.views",
         "documentation": {}
     },
