@@ -76,3 +76,11 @@ class CategoryViewSet(viewsets.ViewSet):
             return Response(serialized.data, status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
+        
+    def destroy(self, request, pk):
+        try:
+            # Product.objects.filter(category=pk).delete()
+            Category.objects.get(id=pk).delete()
+            return Response(status=status.HTTP_200_OK)
+        except:
+            return Response(status=status.HTTP_204_NO_CONTENT)
