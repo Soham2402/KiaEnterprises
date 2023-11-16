@@ -90,3 +90,15 @@ class CategoryViewSet(viewsets.ViewSet):
         if deserialized.is_valid(raise_exception=True):
             deserialized.save()
             return Response(status=status.HTTP_200_OK)
+        
+    def update(self, request, pk):
+        try:
+            product_instance = Category.objects.get(id=pk)
+        except Product.DoesNotExist:
+            return Response({"error": "Record not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        deserialized = CategorySerializer(product_instance, data=request.data, partial=True)
+
+        if deserialized.is_valid(raise_exception=True):
+            deserialized.save()
+            return Response(status=status.HTTP_200_OK)
