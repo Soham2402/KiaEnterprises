@@ -17,7 +17,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField(null=False)
     hasSub = models.BooleanField(null=False) 
     # Establishes models connection with category
-    category = models.ForeignKey(to = Category, on_delete= models.DO_NOTHING, default=1)
+    category = models.ForeignKey(to = Category, on_delete= models.CASCADE, default=1)
      
     #Makes admin panel look sexy
     def __str__(self):
