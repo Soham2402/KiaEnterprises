@@ -84,3 +84,9 @@ class CategoryViewSet(viewsets.ViewSet):
             return Response(status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
+        
+    def create(self, request):
+        deserialized = CategorySerializer(data = request.data)
+        if deserialized.is_valid(raise_exception=True):
+            deserialized.save()
+            return Response(status=status.HTTP_200_OK)
