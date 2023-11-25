@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -73,6 +81,14 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "settings",
         "importPath": "django.conf",
         "description": "django.conf",
@@ -110,6 +126,15 @@
         "description": "inventory.views",
         "isExtraImport": true,
         "detail": "inventory.views",
+        "documentation": {}
+    },
+    {
+        "label": "authapp",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "authapp",
+        "description": "authapp",
+        "detail": "authapp",
         "documentation": {}
     },
     {
@@ -378,11 +403,51 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "getRoutes",
+        "importPath": "authapp.views",
+        "description": "authapp.views",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "authapp.views",
+        "documentation": {}
+    },
+    {
+        "label": "TokenObtainPairView",
+        "importPath": "rest_framework_simplejwt.views",
+        "description": "rest_framework_simplejwt.views",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.views",
+        "documentation": {}
+    },
+    {
+        "label": "TokenRefreshView",
+        "importPath": "rest_framework_simplejwt.views",
+        "description": "rest_framework_simplejwt.views",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.views",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "api_view",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
         "documentation": {}
     },
     {
@@ -492,14 +557,6 @@
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -522,7 +579,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-g)h_(#mh&c1#a18!l+yzi_f-kewhjarcc$vg^-19a)dl5m4a06'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['0.0.0.0']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-g)h_(#mh&c1#a18!l+yzi_f-kewhjarcc$vg^-19a)dl5m4a06'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['0.0.0.0','*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -531,7 +588,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-g)h_(#mh&c1#a18!l+yzi_f-kewhjarcc$vg^-19a)dl5m4a06'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['0.0.0.0']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-g)h_(#mh&c1#a18!l+yzi_f-kewhjarcc$vg^-19a)dl5m4a06'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['0.0.0.0','*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -540,7 +597,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['0.0.0.0']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['0.0.0.0','*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -549,7 +606,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "ALLOWED_HOSTS = ['0.0.0.0']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
+        "peekOfCode": "ALLOWED_HOSTS = ['0.0.0.0','*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -558,16 +615,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'inventory'\n]",
-        "detail": "KiaEnterprises.settings",
-        "documentation": {}
-    },
-    {
-        "label": "MIDDLEWARE",
-        "kind": 5,
-        "importPath": "KiaEnterprises.settings",
-        "description": "KiaEnterprises.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nREST_FRAMEWORK = {",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework_simplejwt.token_blacklist',\n    'inventory',",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -576,7 +624,25 @@
         "kind": 5,
         "importPath": "KiaEnterprises.settings",
         "description": "KiaEnterprises.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    )\n}\nROOT_URLCONF = 'KiaEnterprises.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    )\n}\nSIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=15),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=90),\n    \"ROTATE_REFRESH_TOKENS\": True,\n    \"BLACKLIST_AFTER_ROTATION\": True,",
+        "detail": "KiaEnterprises.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SIMPLE_JWT",
+        "kind": 5,
+        "importPath": "KiaEnterprises.settings",
+        "description": "KiaEnterprises.settings",
+        "peekOfCode": "SIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=15),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=90),\n    \"ROTATE_REFRESH_TOKENS\": True,\n    \"BLACKLIST_AFTER_ROTATION\": True,\n    \"UPDATE_LAST_LOGIN\": False,\n    \"ALGORITHM\": \"HS256\",\n    \"VERIFYING_KEY\": \"\",\n    \"AUDIENCE\": None,\n    \"ISSUER\": None,",
+        "detail": "KiaEnterprises.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "KiaEnterprises.settings",
+        "description": "KiaEnterprises.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'KiaEnterprises.urls'",
         "detail": "KiaEnterprises.settings",
         "documentation": {}
     },
@@ -702,7 +768,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.urls",
         "description": "KiaEnterprises.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'inventory', viewset=ProductViewSet, basename='ProductQueryset')\nrouter.register(r'category', viewset=CategoryViewSet, basename='CategoryQueryset')\nurlpatterns = [\n  path('admin/', admin.site.urls),\n    path('',include(router.urls))   \n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'inventory', viewset=ProductViewSet, basename='ProductQueryset')\nrouter.register(r'category', viewset=CategoryViewSet, basename='CategoryQueryset')\nurlpatterns = [\n  path('admin/', admin.site.urls),\n  path('',include(router.urls)),   \n  path('auth/',include(\"authapp.urls\"))\n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "KiaEnterprises.urls",
         "documentation": {}
     },
@@ -711,7 +777,7 @@
         "kind": 5,
         "importPath": "KiaEnterprises.urls",
         "description": "KiaEnterprises.urls",
-        "peekOfCode": "urlpatterns = [\n  path('admin/', admin.site.urls),\n    path('',include(router.urls))   \n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "urlpatterns = [\n  path('admin/', admin.site.urls),\n  path('',include(router.urls)),   \n  path('auth/',include(\"authapp.urls\"))\n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "KiaEnterprises.urls",
         "documentation": {}
     },
@@ -731,6 +797,24 @@
         "description": "authapp.apps",
         "peekOfCode": "class AuthappConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'authapp'",
         "detail": "authapp.apps",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "authapp.urls",
+        "description": "authapp.urls",
+        "peekOfCode": "urlpatterns = [\n    path('',getRoutes,name = \"auth_routes\"),\n    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n]",
+        "detail": "authapp.urls",
+        "documentation": {}
+    },
+    {
+        "label": "getRoutes",
+        "kind": 2,
+        "importPath": "authapp.views",
+        "description": "authapp.views",
+        "peekOfCode": "def getRoutes(request):\n    routes = {\n        \"token\":\"token\",\n        \"refresh\":\"token/refresh/\"\n    }\n    return Response(routes)",
+        "detail": "authapp.views",
         "documentation": {}
     },
     {
