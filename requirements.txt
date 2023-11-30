@@ -1,0 +1,6 @@
+Django==4.2.3
+djangorestframework==3.14.0
+Pillow
+whitenoise==6.5.0
+djangorestframework-simplejwt
+django-admin-soft-dashboard
