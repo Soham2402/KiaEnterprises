@@ -8,6 +8,7 @@ from rest_framework.routers import DefaultRouter
 
 from inventory.views import ProductViewSet
 from inventory.views import CategoryViewSet
+# from adminPanel import admin_soft
 import authapp
 
 
@@ -20,6 +21,7 @@ urlpatterns = [
   
   path('admin/', admin.site.urls),
   path('',include(router.urls)),   
-  path('auth/',include("authapp.urls"))
+  path('auth/',include("authapp.urls")),
+  path('', include('admin_soft.urls'))
   
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
