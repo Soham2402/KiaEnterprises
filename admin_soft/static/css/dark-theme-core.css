@@ -23,6 +23,19 @@ body.dark-page .fixed-plugin .fixed-plugin-button {
 body.dark-page .sidenav-header .navbar-brand {
   color: #fff !important;
 }
+
+body.dark-page .nav-link-text {
+  color:#ffffff !important;
+}
+
+body.dark-page .field-__str__ {
+  color:#ffffff !important;
+}
+
+a.dark-page{
+  color: #ffffff;
+}
+
 body.dark-page .card, body.dark-page .card-header {
   background-color: #404B69 !important;
 }
