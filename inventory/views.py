@@ -1,13 +1,13 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from .serializer import ProductSerializer, ImageSerializer, CategorySerializer, CategoryProductSerializer
+from .serializer import ProductSerializer, ProductsSerializer, CategorySerializer, CategoryProductSerializer
 from inventory.models import Category, Image, Product
 
 class ProductViewSet(viewsets.ViewSet):
     def list(self, request):
         products = Product.objects.all()
-        serialized = ProductSerializer(products, many=True)
+        serialized = ProductsSerializer(products, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
     def retrieve(self, request,pk):

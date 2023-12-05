@@ -4,3 +4,4 @@ Pillow
 whitenoise==6.5.0
 djangorestframework-simplejwt
 django-admin-soft-dashboard
+django-cors-headers==4.3.1 
