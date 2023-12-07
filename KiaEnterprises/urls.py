@@ -18,6 +18,7 @@ router.register(r'category', viewset=CategoryViewSet, basename='CategoryQueryset
 
 urlpatterns = [
   
+  path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
   path('admin/', admin.site.urls),
   path('',include(router.urls)),   
   path('auth/',include("authapp.urls"))
