@@ -10,7 +10,7 @@ from inventory.views import ProductViewSet
 from inventory.views import CategoryViewSet
 import authapp
 
-
+admin.site.site_header = 'Kia Enterprises'  
 
 router = DefaultRouter()
 router.register(r'inventory', viewset=ProductViewSet, basename='ProductQueryset')
