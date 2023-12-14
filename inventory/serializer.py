@@ -67,7 +67,7 @@ class CategorySerializer(serializers.ModelSerializer):
         
 class CategoryProductSerializer(serializers.ModelSerializer):
     about = serializers.CharField(source='description.about')
-    # product_image = ImageSerializer(many = True)
+    product_image = ImageSerializer(many = True)
 
     class Meta:
         model = Product

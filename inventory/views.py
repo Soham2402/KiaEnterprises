@@ -37,7 +37,7 @@ class CategoryViewSet(viewsets.ViewSet):
         try:
             products = Product.objects.filter(category=pk)
             # print(products.id)
-            serialized = CategoryProductSerializer(products, many=True)
+            serialized =ProductSerializer(products, many=True)
             return Response(serialized.data, status=status.HTTP_200_OK)
         except:
             return Response(status=status.HTTP_204_NO_CONTENT)
