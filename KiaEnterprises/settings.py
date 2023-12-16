@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g)h_(#mh&c1#a18!l+yzi_f-kewhjarcc$vg^-19a)dl5m4a06'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0','*']
+ALLOWED_HOSTS = ['0.0.0.0',"https://api.kiaartworks.in","http://kiaartworks.in","13.233.104.249"]
 
 
 # Application definition
@@ -101,9 +101,15 @@ SIMPLE_JWT = {
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+"https://api.kiaartworks.in",
+"http://kiaartworks.in",
+"http://13.233.104.249",
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
@@ -113,6 +119,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 ROOT_URLCONF = 'KiaEnterprises.urls'

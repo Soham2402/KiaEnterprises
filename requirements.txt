@@ -4,3 +4,7 @@ Pillow
 whitenoise==6.5.0
 djangorestframework-simplejwt
 django-4-jet
+WhiteNoise
+gunicorn 
+django-4-jet
+django-cors-headers
